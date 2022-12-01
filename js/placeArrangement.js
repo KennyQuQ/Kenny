@@ -1,6 +1,9 @@
 let student = [];
 let number = [];
-let specialDesk = [4,6,7,8,10]
+const specialDesk = [4,6,7,8,10]
+
+const studentName = ["古樂彤","田欣凱","何碧欣","吳卓彥","吳麗瑩","李治熹","李穎瑤","侯璟琪","孫敏靈","翁鴻飛","梁智傑","許宛瑩","許穎","陳萬傑","陳樂康","陳樂悠","湯泳妍","馮銘濤","黃澤賢","劉志聰","劉梓謙","鄭婉婷","黎曦雅","盧泳欣","霍依婷","薛贏超","鍾瑋汶","魏俊昌","蘇啟堅"]
+
 const btnEl = document.querySelector("#btn-el")
 
 // create a student desk array
@@ -9,6 +12,7 @@ for (let i=1; i<=12; i++) {
     console.log(i)
     console.log(student)
 }
+
 
 /* student.push(document.querySelector("#seat-1"))
 student.push(document.querySelector("#seat-2"))
@@ -38,7 +42,7 @@ function generate() {
     student.forEach(element => {
             for (let i=1; i<=2; i++) {
                 let r = Math.floor(Math.random() * number.length) //random
-                element.textContent += number[r] + "        "
+                element.textContent += ` ${studentName[number[r] - 1]} (${number[r]}) `
                 const removed = number.splice(r, 1) // remove specific index in the array
                 console.log(number)
             }
@@ -47,7 +51,7 @@ function generate() {
     // pick the remain student to the special desks that contain 3 student
     for (let i=0; i<=4; i++) {
         let r = Math.floor(Math.random() * number.length) //random
-                student[specialDesk[i]].textContent += number[r]
+                student[specialDesk[i]].textContent += ` ${studentName[number[r] - 1]} (${number[r]}) `
                 const removed = number.splice(r, 1) // remove specific index in the array
     } 
 }
